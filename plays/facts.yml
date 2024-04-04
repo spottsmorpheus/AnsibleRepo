@@ -1,0 +1,18 @@
+---
+- name: Testing Playbooks
+  hosts: localhost
+  gather_facts: true
+  tasks:
+    - name: Some Debug
+      debug:
+        msg: "{{ ansible_facts['lsb'] }}"
+    - name: Using variables
+      ansible.builtin.command:
+        cmd: /usr/bin/uptime
+      register: result
+    - name: Access a result
+      debug:
+        msg: "This is a debug for result {{ result }}"
+    - name: Access as a var
+      debug:
+        var: result
