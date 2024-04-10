@@ -5,7 +5,7 @@
   - community.docker-docker_container:
       name: "ansible c {{ item }}"
       image: python
-      �# keep the containers running in the background
+      # keep the containers running in the background
       tty: true
       interactive: true
     loop: "{{ range(1,6) }}"
