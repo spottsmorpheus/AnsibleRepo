@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
   - community.docker.docker_container:
-      name: "ansible c {{ item }}"
+      name: "ansible-{{ item }}"
       image: python
       # keep the containers running in the background
       tty: true
