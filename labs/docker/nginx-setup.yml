@@ -5,7 +5,7 @@
   gather_facts: true
   tasks:
   - name: "install nginx"
-      ansible.builtin.apt:
-        update_cache: true
-        pkg:
-        - nginx
+    ansible.builtin.apt:
+      update_cache: true
+      pkg:
+      - nginx
