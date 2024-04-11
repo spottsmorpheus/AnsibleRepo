@@ -9,6 +9,11 @@
       update_cache: true
       pkg:
       - nginx
+  - name: Installing Template site
+    ansible.builtin.template:
+      src: ./template/nginx-site.html.j2
+      dest: /var/www/html/index.html
+      force: true
   - name: Start nginx service
     ansible.builtin.service:
       name: nginx
