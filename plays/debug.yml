@@ -5,5 +5,5 @@
   tasks:
     - name: Debug hostvars
       debug:
-        var: ansible_env
+        msg: "User {{ ansible_user }} on host {{ inventory_hostname }} - connection {{ ansible_connection }}"
 
