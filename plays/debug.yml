@@ -5,4 +5,5 @@
   tasks:
     - name: Debug hostvars
       debug:
-        var: hostvars
+        var: ansible_env
+
