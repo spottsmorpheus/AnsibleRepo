@@ -4,8 +4,12 @@
   #become: true
   #gather_facts: true
   tasks:
-  - name: "install nginx"
+  - name: Install nginx via apt
     ansible.builtin.apt:
       update_cache: true
       pkg:
       - nginx
+  - name: Start nginx service
+    ansible.builtin.service:
+      name: nginx
+      state: started
