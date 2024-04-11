@@ -2,7 +2,8 @@
 - name: Stop a bunch of containers
   hosts: localhost
   tasks:
-  - community.docker.docker_container:
+  - name: "Stop and destroy ansible-n containers"
+    community.docker.docker_container:
       name: "ansible-{{ item }}"
       image: python
       tty: true
@@ -10,3 +11,8 @@
       state: absent
       force_kill: true
     loop: "{{ range(1,6) }}"
+  - name: "Stop and destroy Nginx container"
+    community.docker.docker_container:
+      name: "nginx-1"
+      state: absent
+      force_kill: true

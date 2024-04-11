@@ -1,8 +1,8 @@
 ---
 - name: Install nginx in a python docker container
   hosts: all
-  become: true
-  gather_facts: true
+  #become: true
+  #gather_facts: true
   tasks:
   - name: "install nginx"
     ansible.builtin.apt:

@@ -14,7 +14,7 @@
     community.docker.docker_container:
       name: "nginx-1"
       image: nginx
-      state: present
+      state: started
       ports:
       # publisf container port 80 as host 6080
       - 6080:80
