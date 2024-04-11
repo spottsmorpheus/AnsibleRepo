@@ -19,3 +19,6 @@
       # publish container port 80 as host 6080
       - 6080:80
       detach: true
+      tty: true
+      interactive: true
+
