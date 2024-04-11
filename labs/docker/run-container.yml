@@ -2,10 +2,20 @@
 - name: Start a bunch of containers
   hosts: localhost
   tasks:
-  - community.docker.docker_container:
+  - name: "Start 5 Python Containers"
+    community.docker.docker_container:
       name: "ansible-{{ item }}"
       image: python
       # keep the containers running in the background
       tty: true
       interactive: true
     loop: "{{ range(1,6) }}"
+  - name: "Start Nginx Container"
+    community.docker.docker_container:
+      name: "nginx-1"
+      image: nginx
+      state: present
+      ports:
+      # publisf container port 80 as host 6080
+      - 6080:80
+      detach: true
