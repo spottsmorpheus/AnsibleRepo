@@ -20,5 +20,8 @@
       return_content: true
       validate_certs: false
     register: this
-  - ansible.builtin.debug:
+    delegate_to: localhost
+  - name: Print Response
+    delegate_to: localhost
+    ansible.builtin.debug:
       var: "{{ this }}"
