@@ -23,5 +23,5 @@
     delegate_to: localhost
   - name: Print Response
     delegate_to: localhost
-      ansible.builtin.debug:
-        var: "{{ response }}"
+    ansible.builtin.debug:
+      var: "{{ response.content }}"
