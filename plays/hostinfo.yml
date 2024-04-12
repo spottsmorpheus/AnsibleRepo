@@ -3,5 +3,7 @@
   hosts: all
   gather_facts: false
   tasks:
+  - name: ansible.builtin.debug
+    msg: "Execution lease for this play is {{ ansible_morpheus_token }}"
   - name: Ansible tmp folder
     ansible.builtin.shell: echo "This is user $USER - pwd $PWD"
