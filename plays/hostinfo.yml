@@ -16,9 +16,8 @@
       url: "{{ ansible_morpheus_url }}/api/execution-request/lease/{{ ansible_morpheus_token }}?containerId={{ ansible_morpheus_container_id }}"
       method: POST
       body_format: json
-      body: {"cmd":"hsotnamectl"}
+      body: {"cmd":"hostnamectl"}
       return_content: true
     register: this
   - ansible.builtin.debug:
-      var: {{ this }}
-
+      var: "{{ this }}"
