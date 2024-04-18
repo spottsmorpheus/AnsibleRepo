@@ -4,6 +4,9 @@
   gather_facts: false
   tasks:
     - name: Debug hostvars
-      debug:
-        msg: "User {{ ansible_user }} on host {{ inventory_hostname }} - connection {{ ansible_connection }}"
-
+      ansible.builtin.debug:
+        msg: 
+        - "User {{ ansible_user }} on host {{ inventory_hostname }} - connection {{ ansible_connection }}"
+        - "Execution lease for this play is {{ ansible_morpheus_token }}"
+        - "The Morpheus Appliance is {{ ansible_morpheus_url}}"
+        - "The containerId is {{ ansible_morpheus_container_id}}"
