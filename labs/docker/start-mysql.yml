@@ -1,0 +1,15 @@
+---
+- name: Start a mysql container
+  hosts: localhost
+  tasks:
+  - name: mysql
+    community.docker.docker_container:
+      name: mysqldb
+      image: mysql
+      # keep the containers running in the background
+      tty: true
+      interactive: true
+      detach: true
+      hostname: mysqldb
+      env:
+        MYSQL_ROOT_PASSWORD: morpheus123
