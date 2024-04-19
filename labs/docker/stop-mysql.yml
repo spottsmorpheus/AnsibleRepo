@@ -1,0 +1,9 @@
+---
+- name: Stop the mysql container
+  hosts: localhost
+  tasks:
+  - name: "Stop and destroy mysql container"
+    community.docker.docker_container:
+      name: "mysqldb"
+      state: absent
+      force_kill: true
