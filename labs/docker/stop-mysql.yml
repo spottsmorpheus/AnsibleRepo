@@ -1,0 +1,15 @@
+---
+- name: Stop a bunch of containers
+  hosts: localhost
+  tasks:
+  - name: "Stop and destroy MYSQL"
+    community.docker.docker_container:
+      name: mysqldb
+      image: mysql
+      state: absent
+      force_kill: true
+  - name: "Stop Adminer"
+    community.docker.docker_container:
+      name: adminer
+      state: absent
+      force_kill: true
