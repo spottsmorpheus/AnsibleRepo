@@ -1,0 +1,18 @@
+---
+- name: Start a Morpheus Dev Environment
+  hosts: localhost
+  tasks:
+  - name: mysql container
+    community.docker.docker_container:
+      name: mysqldb
+      image: mysql
+      state: absent
+      force_kill: true
+  - name: rabbit container
+    community.docker.docker_container:
+      name: rabbitmq
+      image: rabbitmq
+      hostname: dev-rabbit
+      state: absent
+      force_kill: true
+   

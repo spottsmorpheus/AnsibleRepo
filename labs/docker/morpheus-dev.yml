@@ -1,0 +1,18 @@
+---
+- name: Start a Morpheus Dev Environment
+  hosts: localhost
+  tasks:
+  - name: mysql container
+    community.docker.docker_container:
+      name: mysqldb
+      image: mysql
+      # keep the containers running in the background
+      env:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: morpheus_development
+  - name: rabbit container
+    community.docker.docker_container:
+      name: rabbitmq
+      image: rabbitmq
+      hostname: dev-rabbit
+   
