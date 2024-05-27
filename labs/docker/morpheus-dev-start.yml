@@ -1,0 +1,39 @@
+---
+- name: Start a Morpheus Dev Environment
+  hosts: localhost
+  tasks:
+  - name: mysql container
+    community.docker.docker_container:
+      name: mysqldb
+      image: mysql
+      # keep the containers running in the background
+      env:
+        MYSQL_ROOT_PASSWORD: "Morpheus123%"
+        MYSQL_DATABASE: morpheus_development
+      ports:
+      - 3306:3306
+  - name: adminer
+    community.docker.docker_container:
+      name: adminer
+      image: adminer
+      ports:
+      - 5080:8080
+      links:
+      - mysqldb:db      
+  - name: rabbit container with Managemnet
+    community.docker.docker_container:
+      name: rabbitmq
+      image: "rabbitmq:3-management"
+      hostname: dev-rabbit
+      ports:
+      - 5081:15672
+      - 5672:5672
+  - name: Elastic Container 
+    community.docker.docker_container:
+      name: elasticsearch
+      image: "elasticsearch:7.17.18"
+      ports:
+      - 9200:9200
+      - 9300:9300
+      env:
+        discovery.type: single-node

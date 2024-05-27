@@ -6,19 +6,23 @@
     community.docker.docker_container:
       name: mysqldb
       image: mysql
-      state: stopped
+      state: absent
+      force_kill: true
   - name: adminer
     community.docker.docker_container:
       name: adminer
       image: adminer
-      state: stopped
+      state: absent
+      force_kill: true
   - name: rabbit container
     community.docker.docker_container:
       name: rabbitmq
       image: "rabbitmq:3-management"
-      state: stopped
+      state: absent
+      force_kill: true
   - name: Elastic Container
     community.docker.docker_container:
       name: elasticsearch
       image: "elasticsearch:7.17.18"
-      state: stopped
+      state: absent
+      force_kill: true   
