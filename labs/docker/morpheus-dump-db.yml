@@ -1,0 +1,20 @@
+---
+- name: Configure Morpheus Mysql databases
+  hosts: localhost
+  tasks:
+  - name: Dump dev_70 database
+    community.mysql.mysql_db:
+      name: dev_70
+      state: dump
+      target : ~/Morpheus-Run-Config/db/dev_70.sql
+      login_host: 127.0.0.1
+      login_user: root
+      login_password: Morpheus123%
+  - name: Dump dev_62 database
+    community.mysql.mysql_db:
+      name: dev_62
+      state: dump
+      target : ~/Morpheus-Run-Config/db/dev_62.sql
+      login_host: 127.0.0.1
+      login_user: root
+      login_password: Morpheus123%      

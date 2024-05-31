@@ -1,0 +1,12 @@
+---
+- name: Configure Morpheus Mysql databases
+  hosts: localhost
+  tasks:
+  - name: Create Databases
+    community.mysql.mysql_db:
+      name: 
+      - dev_62
+      - dev_70
+      state: present
+      login_user: root
+      login_password: Morpheus123%

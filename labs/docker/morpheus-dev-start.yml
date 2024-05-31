@@ -9,7 +9,6 @@
       # keep the containers running in the background
       env:
         MYSQL_ROOT_PASSWORD: "Morpheus123%"
-        MYSQL_DATABASE: morpheus_development
       ports:
       - 3306:3306
   - name: adminer
