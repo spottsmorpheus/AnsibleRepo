@@ -18,3 +18,11 @@
       login_host: 127.0.0.1
       login_user: root
       login_password: Morpheus123%      
+  - name: Dump dev_80 database
+    community.mysql.mysql_db:
+      name: dev_80
+      state: dump
+      target : ~/Morpheus-Run-Config/db/dev_80.sql
+      login_host: 127.0.0.1
+      login_user: root
+      login_password: Morpheus123% 

@@ -7,6 +7,7 @@
       name: 
       - dev_62
       - dev_70
+      - dev_80
       state: present
       login_user: root
       login_password: Morpheus123%
